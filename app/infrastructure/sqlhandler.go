@@ -1,10 +1,10 @@
 package infrastructure
 
 import (
-	"log"
-	"gopkg.in/gormigrate.v1"
-	"github.com/jinzhu/gorm"
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/jinzhu/gorm"
+	"gopkg.in/gormigrate.v1"
+	"log"
 
 	"github.com/horizon67/go-clean-arch-todo-example/app/domain"
 	"github.com/horizon67/go-clean-arch-todo-example/app/interfaces/database"
@@ -15,7 +15,7 @@ type SqlHandler struct {
 }
 
 func NewSqlHandler() database.SqlHandler {
-	conn, err := gorm.Open("mysql", "root:root@tcp(127.0.0.1:3326)/todo_example?charset=utf8&parseTime=True&loc=Local")
+	conn, err := gorm.Open("mysql", "root:root@tcp(db)/todo_example?charset=utf8&parseTime=True&loc=Local")
 	if err != nil {
 		panic(err.Error)
 	}
